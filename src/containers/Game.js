@@ -1,3 +1,4 @@
+
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -7,7 +8,11 @@ import JoinGameDialog from '../components/games/JoinGameDialog'
 
 const playerShape = PropTypes.shape({
   userId: PropTypes.string.isRequired,
-  pairs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  hand: PropTypes.arrayOf(PropTypes.object).isRequired,
+  score: PropTypes.number.isRequired,
+  hasStood: PropTypes.bool,
+  blackJack: PropTypes.number.isRequired,
+  busted: PropTypes.number.isRequired,
   name: PropTypes.string
 })
 
@@ -20,22 +25,14 @@ class Game extends PureComponent {
       _id: PropTypes.string.isRequired,
       userId: PropTypes.string.isRequired,
       players: PropTypes.arrayOf(playerShape),
-      draw: PropTypes.bool,
       updatedAt: PropTypes.string.isRequired,
       createdAt: PropTypes.string.isRequired,
       started: PropTypes.bool,
-      turn: PropTypes.number.isRequired,
-      cards: PropTypes.arrayOf(PropTypes.shape({
-        symbol: PropTypes.string,
-        _id: PropTypes.string,
-        won: PropTypes.bool,
-        visible: PropTypes.bool
-      }))
+      deck: PropTypes.arrayOf(PropTypes.object).isRequired,
     }),
     currentPlayer: playerShape,
     isPlayer: PropTypes.bool,
     isJoinable: PropTypes.bool,
-    hasTurn: PropTypes.bool
   }
 
   componentWillMount() {
@@ -84,7 +81,6 @@ class Game extends PureComponent {
 const mapStateToProps = ({ currentUser, games }, { match }) => {
   const game = games.filter((g) => (g._id === match.params.gameId))[0]
   const currentPlayer = game && game.players.filter((p) => (p.userId === currentUser._id))[0]
-
   return {
     currentPlayer,
     game,
