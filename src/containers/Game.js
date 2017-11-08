@@ -71,7 +71,9 @@ class Game extends PureComponent {
         <h1>YOUR GAME HERE! :)</h1>
 
         <h2>Debug Props</h2>
-        <pre>{JSON.stringify(this.props, true, 2)}</pre>
+        <pre>{JSON.stringify(this.props.game.deck.map(c=>c.image)[0], true, 2)}</pre>
+        <img src={this.props.game.deck.map(c=>c.image)[2]} />
+
 
         <JoinGameDialog gameId={game._id} />
       </div>
@@ -82,12 +84,11 @@ class Game extends PureComponent {
 const mapStateToProps = ({ currentUser, games }, { match }) => {
   const game = games.filter((g) => (g._id === match.params.gameId))[0]
   const currentPlayer = game && game.players.filter((p) => (p.userId === currentUser._id))[0]
-  const hasTurn = !!currentPlayer && game.players[game.turn].userId === currentUser._id
+
   return {
     currentPlayer,
     game,
     isPlayer: !!currentPlayer,
-    hasTurn,
     isJoinable: game && !currentPlayer && game.players.length < 2
   }
 }
