@@ -12,7 +12,7 @@ const playerShape = PropTypes.shape({
   hasStood: PropTypes.bool,
   blackJack: PropTypes.number.isRequired,
   busted: PropTypes.number.isRequired,
-  name: PropTypes.string
+  name: PropTypes.string 
 })
 
 class Game extends PureComponent {
