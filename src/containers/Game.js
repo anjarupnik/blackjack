@@ -83,10 +83,18 @@ class Game extends PureComponent {
                Start
             </button>
           </div>
-            <div className="cardsplayer">
-            <p> Player1 Hand </p>
-            <img src={this.props.game.deck.map(c=>c.image)[3]} alt="hand"/>
-            </div>
+              <div className="cardsplayer0">
+                <img src={this.props.game.deck.map(c=>c.image)[3]} alt="hand"/>
+              </div>
+              <div className="cardsplayer1">
+                <img src={this.props.game.deck.map(c=>c.image)[4]} alt="hand"/>
+              </div>
+              <div className="cardsother">
+                <img src={this.props.game.deck.map(c=>c.image)[5]} alt="hand"/>
+              </div>
+              <div className="cardsother1">
+                <img src={this.props.game.deck.map(c=>c.image)[6]} alt="hand"/>
+              </div>
         </div>
         <JoinGameDialog gameId={game._id} />
       </div>
