@@ -1,6 +1,6 @@
 div.buttons {
     display:inline-block;
-    background-color: #003e00;
+    background-color: #003700;
     vertical-align:middle;
     max-width: 100px;
     padding: 5px;
@@ -25,7 +25,31 @@ div.cardsplayer1 {
   position: relative;
   overflow: hidden;
   left: 350px;
-  bottom: 650px;
+  bottom: 660px;
+  width: 7.5em;
+  height: 12em;
+  border-width: 1px;
+  border-color: #7da37d;
+}
+
+div.cardsplayer2 {
+  transform: rotate(20deg);
+  position: relative;
+  overflow: hidden;
+  left: 300px;
+  bottom: 870px;
+  width: 7.5em;
+  height: 12em;
+  border-width: 1px;
+  border-color: #7da37d;
+}
+
+div.cardsplayer3 {
+  transform: rotate(20deg);
+  position: relative;
+  overflow: hidden;
+  left: 250px;
+  bottom: 1080px;
   width: 7.5em;
   height: 12em;
   border-width: 1px;
@@ -40,7 +64,7 @@ div.cardsother {
   border-width: 1px;
   border-color: #7da37d;
   left: 950px;
-  bottom: 800px;
+  bottom: 1240px;
   width: 7.5em;
   height: 12em;
 }
@@ -51,8 +75,32 @@ div.cardsother1 {
   overflow: hidden;
   border-width: 1px;
   border-color: #7da37d;
-  left: 950px;
-  bottom: 950px;
+  left: 900px;
+  bottom: 1415px;
+  width: 7.5em;
+  height: 12em;
+}
+
+div.cardsother2 {
+  transform: rotate(-20deg);
+  position: relative;
+  overflow: hidden;
+  border-width: 1px;
+  border-color: #7da37d;
+  left: 850px;
+  bottom: 1588px;
+  width: 7.5em;
+  height: 12em;
+}
+
+div.cardsother3 {
+  transform: rotate(-20deg);
+  position: relative;
+  overflow: hidden;
+  border-width: 1px;
+  border-color: #7da37d;
+  left: 800px;
+  bottom: 1760px;
   width: 7.5em;
   height: 12em;
 }
