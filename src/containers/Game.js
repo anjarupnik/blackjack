@@ -75,16 +75,17 @@ class Game extends PureComponent {
         <p>{title}</p>
 
         <div className="table">
-        <img className="table" src={table} alt="board"/>
-          <div class="buttons">
+        <img className="board" src={table} alt="this"/>
+          <div className="buttons">
             < Button content="Hit"/>
             < Button content="Stick"/>
             <button onClick = { this.deal.bind(this) }>
                Start
             </button>
           </div>
-            <div class="cardsplayer">
-            <img src={this.props.game.deck.map(c=>c.image)[3]} />
+            <div className="cardsplayer">
+            <p> Player1 Hand </p>
+            <img src={this.props.game.deck.map(c=>c.image)[3]} alt="hand"/>
             </div>
         </div>
         <JoinGameDialog gameId={game._id} />

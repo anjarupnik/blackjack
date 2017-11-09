@@ -5,16 +5,22 @@ div.buttons {
     max-width: 100px;
     padding: 5px;
     position: absolute;
-    left: 50px;
+    left: 235px;
 }
 
 div.cardsplayer {
-  position: absolute;
-  left: 420px;
-  bottom: 160px;
+  transform: rotate(20deg);
+  position: relative;
+  overflow: hidden;
+  left: 450px;
+  bottom: 400px;
   width: 7.5em;
-  height: 9.5em;
-  border-style: outset;
+  height: 12em;
   border-width: 1px;
   border-color: #7da37d;
+}
+
+div img {
+  width: 100%;
+  min-height: 100%;
 }
