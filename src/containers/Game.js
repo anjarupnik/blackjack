@@ -58,6 +58,7 @@ class Game extends PureComponent {
     const title = game.players.map(p => (p.name || null))
       .filter(n => !!n)
       .join(' vs ')
+    console.log(game.players[0].userId)
     return (
       <div className="Game">
         <h1>BLACKJACK</h1>
@@ -68,7 +69,7 @@ class Game extends PureComponent {
         <img className="board" src={table} alt="this"/>
 
           <div className="buttons">
-            < Button content="Hit"/>
+            < button onClick = { this.deal.bind(this) }> Hit </button>
             < Button content="Stick"/>
             <button onClick = { this.deal.bind(this) }>
                Start
