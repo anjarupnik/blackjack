@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchOneGame, fetchPlayers } from '../actions/games/fetch'
+import { fetchOneGame } from '../actions/games/fetch'
 import { connect as subscribeToWebsocket } from '../actions/websocket'
 import JoinGameDialog from '../components/games/JoinGameDialog'
 import { deal } from '../actions/games/deal'
@@ -23,7 +23,6 @@ const playerShape = PropTypes.shape({
 class Game extends PureComponent {
   static propTypes = {
     fetchOneGame: PropTypes.func.isRequired,
-    fetchPlayers: PropTypes.func.isRequired,
     subscribeToWebsocket: PropTypes.func.isRequired,
     game: PropTypes.shape({
       _id: PropTypes.string.isRequired,
@@ -48,14 +47,6 @@ class Game extends PureComponent {
 
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { game } = nextProps
-
-    if (game && !game.players[0].name) {
-      this.props.fetchPlayers(game)
-    }
-  }
-
   deal () {
     const { game } = this.props
     this.props.deal(game)
@@ -64,11 +55,9 @@ class Game extends PureComponent {
   render() {
     const { game } = this.props
     if (!game) return null
-
     const title = game.players.map(p => (p.name || null))
       .filter(n => !!n)
       .join(' vs ')
-
     return (
       <div className="Game">
         <h1>BLACKJACK</h1>
@@ -76,15 +65,15 @@ class Game extends PureComponent {
 
         <div className="table">
         <img className="table" src={table} alt="board"/>
-          <div class="buttons">
+          <div className="buttons">
             < Button content="Hit"/>
             < Button content="Stick"/>
             <button onClick = { this.deal.bind(this) }>
                Start
             </button>
           </div>
-            <div class="cardsplayer">
-            <img src={this.props.game.deck.map(c=>c.image)[3]} />
+            <div className="cardsplayer">
+            <img src={this.props.game.deck.map(c=>c.image)[3]} alt= "card" />
             </div>
         </div>
         <JoinGameDialog gameId={game._id} />
@@ -107,6 +96,5 @@ const mapStateToProps = ({ currentUser, games }, { match }) => {
 export default connect(mapStateToProps, {
   subscribeToWebsocket,
   fetchOneGame,
-  fetchPlayers,
   deal,
 })(Game)
