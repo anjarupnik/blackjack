@@ -10,14 +10,6 @@ import {
 
 export default (state = [], { type, payload } = {}) => {
   switch (type) {
-    case DEAL_CARDS :
-    return state.map((game) => {
-      if (game._id === payload.game._id) {
-        return { ...payload.game, hand: payload.players.hand }
-      }
-      return game
-    })
-
     case FETCHED_GAMES :
       return [ ...payload ]
 
