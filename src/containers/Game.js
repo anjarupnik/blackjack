@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchOneGame, fetchPlayers } from '../actions/games/fetch'
+import { fetchOneGame } from '../actions/games/fetch'
 import { connect as subscribeToWebsocket } from '../actions/websocket'
 import JoinGameDialog from '../components/games/JoinGameDialog'
 import { deal } from '../actions/games/deal'
@@ -23,7 +23,6 @@ const playerShape = PropTypes.shape({
 class Game extends PureComponent {
   static propTypes = {
     fetchOneGame: PropTypes.func.isRequired,
-    fetchPlayers: PropTypes.func.isRequired,
     subscribeToWebsocket: PropTypes.func.isRequired,
     game: PropTypes.shape({
       _id: PropTypes.string.isRequired,
@@ -46,14 +45,6 @@ class Game extends PureComponent {
     if (!game) { fetchOneGame(gameId) }
     subscribeToWebsocket()
 
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { game } = nextProps
-
-    if (game && !game.players[0].name) {
-      this.props.fetchPlayers(game)
-    }
   }
 
   deal () {
@@ -82,7 +73,7 @@ class Game extends PureComponent {
             <button onClick = { this.deal.bind(this) }>
                Start
             </button>
-          </div>
+            </div>
               <div className="cardsplayer0">
                 <img src={this.props.game.deck.map(c=>c.image)[3]} alt="hand"/>
               </div>
@@ -128,6 +119,5 @@ const mapStateToProps = ({ currentUser, games }, { match }) => {
 export default connect(mapStateToProps, {
   subscribeToWebsocket,
   fetchOneGame,
-  fetchPlayers,
   deal,
 })(Game)
