@@ -51,7 +51,11 @@ class Game extends PureComponent {
     if (game && !game.players[0].name) {
       this.props.fetchPlayers(game)
     }
+  }
 
+  deal () {
+    const { game } = this.props
+    this.props.deal(game)
   }
 
   render() {
@@ -72,7 +76,7 @@ class Game extends PureComponent {
         <h2>Debug Props</h2>
         <pre>{JSON.stringify(this.props.game.deck.map(c=>c.image)[0], true, 2)}</pre>
         <img src={this.props.game.deck.map(c=>c.image)[3]} />
-        <button onClick = {() => {this.props.deal(game)}}>
+        <button onClick = { this.deal.bind(this) }>
          Start
          </button>
 
