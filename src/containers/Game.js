@@ -64,17 +64,42 @@ class Game extends PureComponent {
         <p>{title}</p>
 
         <div className="table">
-        <img className="table" src={table} alt="board"/>
+
+        <img className="board" src={table} alt="this"/>
+
           <div className="buttons">
             < Button content="Hit"/>
             < Button content="Stick"/>
             <button onClick = { this.deal.bind(this) }>
                Start
             </button>
+
           </div>
-            <div className="cardsplayer">
-            <img src={this.props.game.deck.map(c=>c.image)[3]} alt= "card" />
-            </div>
+
+              <div className="cardsplayer0">
+                <img src={this.props.game.deck.map(c=>c.image)[3]} alt="hand"/>
+              </div>
+              <div className="cardsplayer1">
+                <img src={this.props.game.deck.map(c=>c.image)[4]} alt="hand"/>
+              </div>
+              <div className="cardsplayer2">
+                <img src={this.props.game.deck.map(c=>c.image)[7]} alt="hand"/>
+              </div>
+              <div className="cardsplayer3">
+                <img src={this.props.game.deck.map(c=>c.image)[8]} alt="hand"/>
+              </div>
+              <div className="cardsother">
+                <img src={this.props.game.deck.map(c=>c.image)[5]} alt="hand"/>
+              </div>
+              <div className="cardsother1">
+                <img src={this.props.game.deck.map(c=>c.image)[6]} alt="hand"/>
+              </div>
+              <div className="cardsother2">
+                <img src={this.props.game.deck.map(c=>c.image)[9]} alt="hand"/>
+              </div>
+              <div className="cardsother3">
+                <img src={this.props.game.deck.map(c=>c.image)[10]} alt="hand"/>
+              </div>
         </div>
         <JoinGameDialog gameId={game._id} />
       </div>
