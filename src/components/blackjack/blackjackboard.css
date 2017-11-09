@@ -1,4 +1,6 @@
 .table {
+  overflow: hidden;
+  max-height: 50vw;
   width: 75vw;
   margin-right: auto;
   margin-left: auto;
