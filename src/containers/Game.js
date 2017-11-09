@@ -6,6 +6,9 @@ import { fetchOneGame, fetchPlayers } from '../actions/games/fetch'
 import { connect as subscribeToWebsocket } from '../actions/websocket'
 import JoinGameDialog from '../components/games/JoinGameDialog'
 import { deal } from '../actions/games/deal'
+import table from '../images/table.png'
+import Button from '../components/blackjack/button'
+import '../components/blackjack/blackjackboard.css'
 
 const playerShape = PropTypes.shape({
   userId: PropTypes.string.isRequired,
@@ -68,18 +71,22 @@ class Game extends PureComponent {
 
     return (
       <div className="Game">
-        <h1>Game!</h1>
+        <h1>BLACKJACK</h1>
         <p>{title}</p>
 
-        <h1>YOUR GAME HERE! :)</h1>
-
-        <h2>Debug Props</h2>
-        <pre>{JSON.stringify(this.props.game.deck.map(c=>c.image)[0], true, 2)}</pre>
-        <img src={this.props.game.deck.map(c=>c.image)[3]} />
-        <button onClick = { this.deal.bind(this) }>
-         Start
-         </button>
-
+        <div className="table">
+        <img className="table" src={table} alt="board"/>
+          <div class="buttons">
+            < Button content="Hit"/>
+            < Button content="Stick"/>
+            <button onClick = { this.deal.bind(this) }>
+               Start
+            </button>
+          </div>
+            <div class="cardsplayer">
+            <img src={this.props.game.deck.map(c=>c.image)[3]} />
+            </div>
+        </div>
         <JoinGameDialog gameId={game._id} />
       </div>
     )

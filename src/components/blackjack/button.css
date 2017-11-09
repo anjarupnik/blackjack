@@ -1,0 +1,20 @@
+div.buttons {
+    display:inline-block;
+    background-color: #003e00;
+    vertical-align:middle;
+    max-width: 100px;
+    padding: 5px;
+    position: absolute;
+    left: 50px;
+}
+
+div.cardsplayer {
+  position: absolute;
+  left: 420px;
+  bottom: 160px;
+  width: 7.5em;
+  height: 9.5em;
+  border-style: outset;
+  border-width: 1px;
+  border-color: #7da37d;
+}
