@@ -55,25 +55,27 @@ class Game extends PureComponent {
   render() {
     const { game } = this.props
     if (!game) return null
-
     const title = game.players.map(p => (p.name || null))
       .filter(n => !!n)
       .join(' vs ')
-
     return (
       <div className="Game">
         <h1>BLACKJACK</h1>
         <p>{title}</p>
 
         <div className="table">
+
         <img className="board" src={table} alt="this"/>
+
           <div className="buttons">
             < Button content="Hit"/>
             < Button content="Stick"/>
             <button onClick = { this.deal.bind(this) }>
                Start
             </button>
-            </div>
+
+          </div>
+
               <div className="cardsplayer0">
                 <img src={this.props.game.deck.map(c=>c.image)[3]} alt="hand"/>
               </div>
