@@ -6,6 +6,7 @@ import { fetchOneGame } from '../actions/games/fetch'
 import { connect as subscribeToWebsocket } from '../actions/websocket'
 import JoinGameDialog from '../components/games/JoinGameDialog'
 import { deal } from '../actions/games/deal'
+import { stick } from '../actions/games/stick'
 import table from '../images/table.png'
 import Button from '../components/blackjack/button'
 import '../components/blackjack/blackjackboard.css'
@@ -13,7 +14,6 @@ import '../components/blackjack/blackjackboard.css'
 const playerShape = PropTypes.shape({
   userId: PropTypes.string.isRequired,
   hand: PropTypes.arrayOf(PropTypes.object).isRequired,
-  score: PropTypes.number.isRequired,
   hasStood: PropTypes.bool,
   blackJack: PropTypes.bool.isRequired,
   busted: PropTypes.bool.isRequired,
@@ -31,6 +31,7 @@ class Game extends PureComponent {
       updatedAt: PropTypes.string.isRequired,
       createdAt: PropTypes.string.isRequired,
       started: PropTypes.bool,
+      winnerId: PropTypes.string,
       deck: PropTypes.arrayOf(PropTypes.object).isRequired,
     }),
     currentPlayer: playerShape,
@@ -47,7 +48,12 @@ class Game extends PureComponent {
 
   }
 
-  deal () {
+  stick() {
+    const { game } = this.props
+    this.props.stick(game)
+  }
+
+  deal() {
     const { game } = this.props
     this.props.deal(game)
   }
@@ -58,7 +64,6 @@ class Game extends PureComponent {
     const title = game.players.map(p => (p.name || null))
       .filter(n => !!n)
       .join(' vs ')
-    console.log(game.players[0].userId)
     return (
       <div className="Game">
         <h1>BLACKJACK</h1>
@@ -70,10 +75,8 @@ class Game extends PureComponent {
 
           <div className="buttons">
             < button onClick = { this.deal.bind(this) }> Hit </button>
-            < Button content="Stick"/>
-            <button onClick = { this.deal.bind(this) }>
-               Start
-            </button>
+            < button onClick = { this.stick.bind(this) }> Stick </button>
+            < button onClick = { this.deal.bind(this) }> Start </button>
 
           </div>
 
@@ -123,4 +126,5 @@ export default connect(mapStateToProps, {
   subscribeToWebsocket,
   fetchOneGame,
   deal,
+  stick,
 })(Game)

@@ -1,6 +1,5 @@
 // src/reducers/games.js
 import { FETCHED_GAMES, FETCHED_ONE_GAME } from '../actions/games/fetch'
-import { DEAL_CARDS } from '../actions/games/deal'
 import {
   GAME_CREATED,
   GAME_UPDATED,
