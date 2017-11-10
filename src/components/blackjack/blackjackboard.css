@@ -1,4 +1,6 @@
 .table {
+  background-image: url(https://wizardofodds.com/play/blackjack-v2/table.png);
+  background-size: contain;
   overflow: hidden;
   max-height: 50vw;
   width: 75vw;
