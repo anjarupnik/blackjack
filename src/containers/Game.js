@@ -9,8 +9,9 @@ import { deal } from '../actions/games/deal'
 import { stick } from '../actions/games/stick'
 import table from '../images/table.png'
 import { deleteGame } from '../actions/games/delete'
-import Button from '../components/blackjack/button'
 import '../components/blackjack/blackjackboard.css'
+import '../components/blackjack/button.css'
+import RaisedButton from 'material-ui/RaisedButton'
 
 const playerShape = PropTypes.shape({
   userId: PropTypes.string.isRequired,
@@ -76,25 +77,47 @@ class Game extends PureComponent {
         <p>{title}</p>
 
         <div className="table">
+        <h1 className= "one"> Player 1 </h1>
+        <h1 className="two"> Player 2 </h1>
+        {game.players[0].busted === true &&
+          <span className="outline end-right">BLACK</span> &&
+          <span className="outline end-left">JACK </span>
+            }
 
-        <img className="board" src={table} alt="this"/>
-
-          <div className="buttons">
-            < button onClick = { this.deal.bind(this) }> Hit </button>
-            < button onClick = { this.stick.bind(this) }> Stick </button>
-            < button onClick = { this.deal.bind(this) }> Start </button>
-            < button onClick = { this.deleteGame.bind(this) }> Back </button>
+          <div className="start">
+          { game.started === false  && game.players.length === 2 ?
+             < button className = "startbutton" onClick = { this.deal.bind(this) }> Start </button> : null }
           </div>
+          <div className="start">
+          { game.started === true && game.turn % 2 !== 0 ?
+             < button onClick = { this.deal.bind(this) } className = "hit" > Hit </button> : null }
+          </div>
+          <div className="player1_stick">
+          { game.started === true && game.turn % 2 !== 0 ?
+              < button onClick = { this.stick.bind(this) }> Stick </button> : null }
+          </div>
+          <div className="player2_hit" >
+          { game.started === true && game.turn % 2 === 0 ?
+             < button onClick = { this.deal.bind(this) }  > Hit </button> : null }
+          </div>
+          <div className="player2_stick">
+          { game.started === true && game.turn % 2 === 0 ?
+              < button onClick = { this.stick.bind(this) }> Stick </button> : null }
+          </div>
+
+
+          < button onClick = { this.deleteGame.bind(this) }> Back </button>
+
 
               <div className="cardsplayer0">
               { game.started === true &&
-                 this.props.game.players[0].hand.map(c => <li>
+                  game.players[0].hand.map(c => <li>
                    <img src= { c.image} alt="hand"/></li>)}
 
               </div>
               <div className="cardsplayer1">
               { game.started === true &&
-                 this.props.game.players[1].hand.map(c => <li>
+                  game.players[1].hand.map(c => <li>
                    <img src= { c.image} alt="hand"/></li>)}
               </div>
         </div>
