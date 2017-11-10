@@ -1,8 +1,13 @@
-.one{
+<link href='https://fonts.googleapis.com/css?family=Arvo:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway:300,100' rel='stylesheet' type='text/css'>
+
+h1.one{
     text-align: left;
+    color: WhiteSmoke;
 }
-.two{
-  text-align: right;
+
+h1.two{
+    text-align: right;
 }
 
 .startbutton {
@@ -31,108 +36,43 @@
   color: white;
   font-weight: bold;
   height: 50px;
-  width: 50px;
+  width: 75px;
   font-size: 20px;
 }
 
 
 
 div.cardsplayer0 {
+  display: flex;
+  flex-direction: row;
   transform: rotate(20deg);
   position: relative;
   overflow: hidden;
-  left: 400px;
-  bottom: 450px;
+  left: 300px;
+  bottom: -150px;
   /*margin-bottom: -450px;*/
-  width: 7.5em;
-  height: 12em;
+  width: 17.5em;
+  height: 13em;
   border-width: 1px;
   border-color: #7da37d;
 }
 
 div.cardsplayer1 {
-  transform: rotate(20deg);
-  position: relative;
-  overflow: hidden;
-  left: 350px;
-  bottom: 660px;
-  width: 7.5em;
-  height: 12em;
-  border-width: 1px;
-  border-color: #7da37d;
-}
-
-div.cardsplayer2 {
-  transform: rotate(20deg);
-  position: relative;
-  overflow: hidden;
-  left: 300px;
-  bottom: 870px;
-  width: 7.5em;
-  height: 12em;
-  border-width: 1px;
-  border-color: #7da37d;
-}
-
-div.cardsplayer3 {
-  transform: rotate(20deg);
-  position: relative;
-  overflow: hidden;
-  left: 250px;
-  bottom: 1080px;
-  width: 7.5em;
-  height: 12em;
-  border-width: 1px;
-  border-color: #7da37d;
-}
-
-
-div.cardsother {
+  display: flex;
+  flex-direction: row;
   transform: rotate(-20deg);
   position: relative;
   overflow: hidden;
+  left: 1000px;
+  bottom: 60px;
+  width: 17.5em;
+  height: 13em;
   border-width: 1px;
   border-color: #7da37d;
-  left: 950px;
-  bottom: 1240px;
-  width: 7.5em;
-  height: 12em;
 }
 
-div.cardsother1 {
-  transform: rotate(-20deg);
-  position: relative;
-  overflow: hidden;
-  border-width: 1px;
-  border-color: #7da37d;
-  left: 900px;
-  bottom: 1415px;
-  width: 7.5em;
-  height: 12em;
-}
-
-div.cardsother2 {
-  transform: rotate(-20deg);
-  position: relative;
-  overflow: hidden;
-  border-width: 1px;
-  border-color: #7da37d;
-  left: 850px;
-  bottom: 1588px;
-  width: 7.5em;
-  height: 12em;
-}
-
-div.cardsother3 {
-  transform: rotate(-20deg);
-  position: relative;
-  overflow: hidden;
-  border-width: 1px;
-  border-color: #7da37d;
-  left: 800px;
-  bottom: 1760px;
-  width: 7.5em;
-  height: 12em;
+li {
+  list-style-type: none;
 }
 
 div img {
