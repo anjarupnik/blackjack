@@ -5,13 +5,13 @@ import { connect } from 'react-redux'
 import { fetchOneGame } from '../actions/games/fetch'
 import { connect as subscribeToWebsocket } from '../actions/websocket'
 import JoinGameDialog from '../components/games/JoinGameDialog'
+import GameOver from '../components/games/GameOver'
 import { deal } from '../actions/games/deal'
 import { stick } from '../actions/games/stick'
-import table from '../images/table.png'
 import { deleteGame } from '../actions/games/delete'
 import '../components/blackjack/blackjackboard.css'
 import '../components/blackjack/button.css'
-import RaisedButton from 'material-ui/RaisedButton'
+
 
 const playerShape = PropTypes.shape({
   userId: PropTypes.string.isRequired,
@@ -103,27 +103,24 @@ class Game extends PureComponent {
 
           {game.started === true &&
             game.players[0].busted === true &&
-              window.alert("Player 1 --> busted") }
-          { game.started === true &&
-            (game.players[0].busted === true ||  game.players[1].busted === true || game.winnerId !== "") ?
-          < button onClick = { this.deleteGame.bind(this)} className = "startbutton"> Back </button> : null}
+              <GameOver gameId={game._id} title="Player 1 busted"/> }
           {game.started === true &&
             game.players[1].busted === true &&
-              window.confirm("Player 2 --> busted") }
+              <GameOver gameId={game._id} title="Player 1 busted"/> }
+          {game.started === true &&
+            game.players[0].blackJack === true &&
+            <GameOver gameId={game._id} title="PLAYER 1 --> BLACKJACK"/>}
           {game.started === true &&
             game.players[1].blackJack === true &&
-              window.alert("PLAYER 1 --> BLACKJACK") }
-          {game.started === true &&
-            game.players[1].blackJack === true &&
-              window.alert("PLAYER2 --> BLACKJACK") }
+              <GameOver gameId={game._id} title="PLAYER 2 --> BLACKJACK"/> }
 
           {game.started === true &&
             game.winnerId === game.players[0].userId &&
-             window.alert("PLAYER 1 WON!!!!")}
+              <GameOver gameId={game._id} title="PLAYER 1 WON!!!"/>}
 
           {game.started === true &&
             game.winnerId === game.players[1].userId &&
-             window.alert("PLAYER 2 WON!!!!")}
+             <GameOver gameId={game._id} title="PLAYER 2 WON!!!"/>}
 
               <div className="cardsplayer0">
               { game.started === true &&
