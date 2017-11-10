@@ -81,7 +81,7 @@ class Game extends PureComponent {
           </div>
 
               <div className="cardsplayer0">
-                <img src={this.props.game.deck.map(c=>c.image)[3]} alt="hand"/>
+                <img src= { this.props.game.players[0].hand[0].image } alt="hand"/>
               </div>
               <div className="cardsplayer1">
                 <img src={this.props.game.deck.map(c=>c.image)[4]} alt="hand"/>
