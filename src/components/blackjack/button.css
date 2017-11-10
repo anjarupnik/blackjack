@@ -1,15 +1,12 @@
 <link href='https://fonts.googleapis.com/css?family=Arvo:700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Raleway:300,100' rel='stylesheet' type='text/css'>
 
-.one, .two {
-  position: absolute;
-  display: inline-block;
+h1.one{
+    text-align: left;
 }
-.one{
-    left: 235px;
-}
-.two{
-    right: 235px;
+
+h1.two{
+    text-align: right;
 }
 
 .start, .player1_stick {
