@@ -5,6 +5,7 @@ import {
   LOAD_ERROR,
   LOAD_SUCCESS
 } from '../loading'
+import { push } from 'react-router-redux'
 
 export const DELETE_GAME = 'DELETE_GAME'
 
@@ -18,7 +19,7 @@ export const deleteGame = (game) => {
       .then((res) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
-        dispatch("/")
+        dispatch(push(`/`))
 
   })
       .catch((error) => {

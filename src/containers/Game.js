@@ -59,6 +59,11 @@ class Game extends PureComponent {
     this.props.deal(game)
   }
 
+  deleteGame() {
+    const { game } = this.props
+    this.props.deleteGame(game)
+  }
+
   render() {
     const { game } = this.props
     if (!game) return null
@@ -78,7 +83,7 @@ class Game extends PureComponent {
             < button onClick = { this.deal.bind(this) }> Hit </button>
             < button onClick = { this.stick.bind(this) }> Stick </button>
             < button onClick = { this.deal.bind(this) }> Start </button>
-            < button onClick = { this.deal.bind(this) }> Back </button>
+            < button onClick = { this.deleteGame.bind(this) }> Back </button>
           </div>
 
               <div className="cardsplayer0">
