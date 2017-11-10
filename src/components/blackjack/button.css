@@ -3,7 +3,6 @@
 
 h1.one{
     text-align: left;
-    color: WhiteSmoke;
 }
 
 h1.two{
@@ -21,7 +20,7 @@ h1.two{
   margin-top: 230px; }
 
 .player2{
-    margin-left: 600px;
+    margin-left: 1360px;
 }
 .hit {
   background-color: red;
