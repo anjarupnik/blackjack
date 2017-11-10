@@ -8,6 +8,7 @@ import JoinGameDialog from '../components/games/JoinGameDialog'
 import { deal } from '../actions/games/deal'
 import { stick } from '../actions/games/stick'
 import table from '../images/table.png'
+import { deleteGame } from '../actions/games/delete'
 import Button from '../components/blackjack/button'
 import '../components/blackjack/blackjackboard.css'
 
@@ -58,6 +59,11 @@ class Game extends PureComponent {
     this.props.deal(game)
   }
 
+  deleteGame() {
+    const { game } = this.props
+    this.props.deleteGame(game)
+  }
+
   render() {
     const { game } = this.props
     if (!game) return null
@@ -77,7 +83,7 @@ class Game extends PureComponent {
             < button onClick = { this.deal.bind(this) }> Hit </button>
             < button onClick = { this.stick.bind(this) }> Stick </button>
             < button onClick = { this.deal.bind(this) }> Start </button>
-
+            < button onClick = { this.deleteGame.bind(this) }> Back </button>
           </div>
 
               <div className="cardsplayer0">
@@ -114,4 +120,5 @@ export default connect(mapStateToProps, {
   fetchOneGame,
   deal,
   stick,
+  deleteGame
 })(Game)
