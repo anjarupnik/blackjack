@@ -129,7 +129,6 @@ class Game extends PureComponent {
               { game.started === true &&
                   game.players[0].hand.map(c => <li>
                    <img src= { c.image} alt="hand"/></li>)}
-
               </div>
               <div className="cardsplayer1">
               { game.started === true &&
