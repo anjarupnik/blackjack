@@ -81,28 +81,15 @@ class Game extends PureComponent {
           </div>
 
               <div className="cardsplayer0">
-                <img src= { this.props.game.players[0].hand[0].image } alt="hand"/>
+              { game.started === true &&
+                 this.props.game.players[0].hand.map(c => <li>
+                   <img src= { c.image} alt="hand"/></li>)}
+
               </div>
               <div className="cardsplayer1">
-                <img src={this.props.game.deck.map(c=>c.image)[4]} alt="hand"/>
-              </div>
-              <div className="cardsplayer2">
-                <img src={this.props.game.deck.map(c=>c.image)[7]} alt="hand"/>
-              </div>
-              <div className="cardsplayer3">
-                <img src={this.props.game.deck.map(c=>c.image)[8]} alt="hand"/>
-              </div>
-              <div className="cardsother">
-                <img src={this.props.game.deck.map(c=>c.image)[5]} alt="hand"/>
-              </div>
-              <div className="cardsother1">
-                <img src={this.props.game.deck.map(c=>c.image)[6]} alt="hand"/>
-              </div>
-              <div className="cardsother2">
-                <img src={this.props.game.deck.map(c=>c.image)[9]} alt="hand"/>
-              </div>
-              <div className="cardsother3">
-                <img src={this.props.game.deck.map(c=>c.image)[10]} alt="hand"/>
+              { game.started === true &&
+                 this.props.game.players[1].hand.map(c => <li>
+                   <img src= { c.image} alt="hand"/></li>)}
               </div>
         </div>
         <JoinGameDialog gameId={game._id} />
