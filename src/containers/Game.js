@@ -79,30 +79,26 @@ class Game extends PureComponent {
         <div className="table">
         <h1 className= "one"> Player 1 </h1>
         <h1 className="two"> Player 2 </h1>
-        {game.players[0].busted === true &&
-          <span className="outline end-right">BLACK</span> &&
-          <span className="outline end-left">JACK </span>
-            }
 
           <div className="start">
           { game.started === false  && game.players.length === 2 ?
-             < button className = "startbutton" onClick = { this.deal.bind(this) }> Start </button> : null }
+             < button onClick = { this.deal.bind(this)} className = "startbutton" > Start </button> : null }
           </div>
-          <div className="start">
+          <div className="player1">
           { game.started === true && game.turn % 2 !== 0 ?
              < button onClick = { this.deal.bind(this) } className = "hit" > Hit </button> : null }
           </div>
-          <div className="player1_stick">
+          <div className="player1">
           { game.started === true && game.turn % 2 !== 0 ?
-              < button onClick = { this.stick.bind(this) }> Stick </button> : null }
+              < button onClick = { this.stick.bind(this) } className = "stick"> Stick </button> : null }
           </div>
-          <div className="player2_hit" >
+          <div className="player2" >
           { game.started === true && game.turn % 2 === 0 ?
-             < button onClick = { this.deal.bind(this) }  > Hit </button> : null }
+             < button onClick = { this.deal.bind(this) }  className = "hit"> Hit </button> : null }
           </div>
-          <div className="player2_stick">
+          <div className="player2">
           { game.started === true && game.turn % 2 === 0 ?
-              < button onClick = { this.stick.bind(this) }> Stick </button> : null }
+              < button onClick = { this.stick.bind(this)} className = "stick"> Stick </button> : null }
           </div>
 
 
