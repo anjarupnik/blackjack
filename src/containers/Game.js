@@ -105,7 +105,7 @@ class Game extends PureComponent {
             game.players[0].busted === true &&
               window.alert("Player 1 --> busted") }
           { game.started === true &&
-            (game.players[0].busted === true ||  game.players[1].busted === true) ?
+            (game.players[0].busted === true ||  game.players[1].busted === true || game.winnerId !== "") ?
           < button onClick = { this.deleteGame.bind(this)} className = "startbutton"> Back </button> : null}
           {game.started === true &&
             game.players[1].busted === true &&
