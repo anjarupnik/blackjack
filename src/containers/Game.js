@@ -101,9 +101,29 @@ class Game extends PureComponent {
               < button onClick = { this.stick.bind(this)} className = "stick"> Stick </button> : null }
           </div>
 
+          {game.started === true &&
+            game.players[0].busted === true &&
+              window.alert("Player 1 --> busted") }
+          { game.started === true &&
+            (game.players[0].busted === true ||  game.players[1].busted === true || game.winnerId !== "") ?
+          < button onClick = { this.deleteGame.bind(this)} className = "startbutton"> Back </button> : null}
+          {game.started === true &&
+            game.players[1].busted === true &&
+              window.confirm("Player 2 --> busted") }
+          {game.started === true &&
+            game.players[1].blackJack === true &&
+              window.alert("PLAYER 1 --> BLACKJACK") }
+          {game.started === true &&
+            game.players[1].blackJack === true &&
+              window.alert("PLAYER2 --> BLACKJACK") }
 
-          < button onClick = { this.deleteGame.bind(this) }> Back </button>
+          {game.started === true &&
+            game.winnerId === game.players[0].userId &&
+             window.alert("PLAYER 1 WON!!!!")}
 
+          {game.started === true &&
+            game.winnerId === game.players[1].userId &&
+             window.alert("PLAYER 2 WON!!!!")}
 
               <div className="cardsplayer0">
               { game.started === true &&
