@@ -122,6 +122,10 @@ class Game extends PureComponent {
             game.winnerId === game.players[1].userId &&
              <GameOver gameId={game._id} title="PLAYER 2 WON!!!"/>}
 
+             {game.started === true &&
+            game.winnerId === "equal" &&
+              <GameOver gameId={game._id} title="EQUAL!!"/>}
+
               <div className="cardsplayer0">
               { game.started === true &&
                   game.players[0].hand.map(c => <li>
