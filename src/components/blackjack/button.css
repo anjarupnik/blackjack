@@ -103,6 +103,10 @@ div.cardsplayer1 {
   border-color: #7da37d;
 }
 
+li {
+  list-style-type: none;
+}
+
 div img {
   width: 100%;
   min-height: 100%;
