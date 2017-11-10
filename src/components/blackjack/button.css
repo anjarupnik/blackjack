@@ -80,23 +80,25 @@ div.cardsplayer0 {
   transform: rotate(20deg);
   position: relative;
   overflow: hidden;
-  left: 400px;
-  bottom: 450px;
+  left: 300px;
+  bottom: -150px;
   /*margin-bottom: -450px;*/
   width: 15em;
-  height: 20em;
+  height: 13em;
   border-width: 1px;
   border-color: #7da37d;
 }
 
 div.cardsplayer1 {
+  display: flex;
+  flex-direction: row;
   transform: rotate(-20deg);
   position: relative;
   overflow: hidden;
   left: 1000px;
-  bottom: 660px;
-  width: 7.5em;
-  height: 12em;
+  bottom: 60px;
+  width: 15em;
+  height: 13em;
   border-width: 1px;
   border-color: #7da37d;
 }
