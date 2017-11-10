@@ -9,67 +9,37 @@ h1.two{
     text-align: right;
 }
 
-.start, .player1_stick {
-    display:inline-block;
-    position: absolute;
-    left: 235px;
-    margin-top: 0px;
-}
-
-	@-webkit-keyframes rotate {
-		0% {transform: rotate(0deg);}
-		100% {transform: rotate(-360deg);}
-	}
-
-.player2_hit, .player2_stick {
-  display:inline-block;
-  position: absolute;
-  left: 235px;
-  margin-left: 350px;
-  margin-top: 300px;
-}
-.player2_stick {
-  margin-left: 400px;
-}
-.player1_stick {
-  margin-left: 100px;
-}
 .startbutton {
-  background-color: rgba(239,57,50,1);
-  color: rgba(133,32,28,1);
-  border-color: rgba(133,32,28,.2);
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  font-size: 25px;
-  text-shadow: 0 1px 0 rgba(255,255,255,.7);
-  letter-spacing: -.065em;
-  -webkit-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out;
-  box-shadow: 2px 2px 7px rgba(0,0,0,.2);
-  border-radius: 300px;
-  z-index: 1;
-  border-width: 4px;
-  border-style: solid;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  height: 120px;
+  width: 220px;
+  font-size: 60px;
+  margin-left: 250px;}
+
+.player2{
+    margin-left: 600px;
 }
-.startbutton:hover {
-		width: 130%;
-		height: 130%;
-		left: -15%;
-		top: -15%;
-		font-size: 33px;
-		padding-top: 38px;
-		-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
-		-o-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
-		-moz-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
-		box-shadow: 5px 5px 10px rgba(0,0,0,.3);
-		z-index: 2;
-		border-size: 10px;
-		-webkit-transform: rotate(-360deg);
-		-moz-transform: rotate(-360deg);
-		-o-transform: rotate(-360deg);
-		transform: rotate(-360deg);
-	}
+.hit {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+}
+
+.stick {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  height: 50px;
+  width: 75px;
+  font-size: 20px;
+}
+
+
 
 div.cardsplayer0 {
   display: flex;
@@ -80,7 +50,7 @@ div.cardsplayer0 {
   left: 300px;
   bottom: -150px;
   /*margin-bottom: -450px;*/
-  width: 15em;
+  width: 17.5em;
   height: 13em;
   border-width: 1px;
   border-color: #7da37d;
@@ -94,7 +64,7 @@ div.cardsplayer1 {
   overflow: hidden;
   left: 1000px;
   bottom: 60px;
-  width: 15em;
+  width: 17.5em;
   height: 13em;
   border-width: 1px;
   border-color: #7da37d;
