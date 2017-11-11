@@ -2,23 +2,33 @@
 <link href='https://fonts.googleapis.com/css?family=Raleway:300,100' rel='stylesheet' type='text/css'>
 
 h1.one{
-    text-align: left;
-    color: WhiteSmoke;
+    align-self: flex-start;
+
 }
 
 h1.two{
-    text-align: right;
+    margin-bottom: 180px;
+    align-self: flex-end;
+    margin-top: -5%;
+    margin-right: 5%;
+}
+
+.start {
+  display: flex;
+  align-content: stretch;
+  flex-direction: row;
 }
 
 .startbutton {
   background-color: red;
   color: white;
   font-weight: bold;
-  height: 120px;
+  height: 300px;
   width: 220px;
   font-size: 60px;
-  margin-left: 540px;
-  margin-top: 230px; }
+  align-self: center;
+
+  }
 
 .player2{
     margin-left: 600px;

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Dialog from 'material-ui/Dialog'
-import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -52,7 +51,7 @@ const mapStateToProps = ({ games }, { gameId }) => {
 
   return {
     game,
-    open: game
+    open: game.started 
   }
 }
 

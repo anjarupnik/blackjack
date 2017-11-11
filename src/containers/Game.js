@@ -73,17 +73,16 @@ class Game extends PureComponent {
       .join(' vs ')
     return (
       <div className="Game">
-        <h1>BLACKJACK</h1>
         <p>{title}</p>
 
         <div className="table">
         <h1 className= "one"> Player 1 </h1>
         <h1 className="two"> Player 2 </h1>
 
-          <div className="start">
+
           { game.started === false  && game.players.length === 2 ?
              < button onClick = { this.deal.bind(this)} className = "startbutton" > Start </button> : null }
-          </div>
+
           <div className="player1">
           { game.started === true && game.turn % 2 !== 0 ?
              < button onClick = { this.deal.bind(this) } className = "hit" > Hit </button> : null }
@@ -106,7 +105,7 @@ class Game extends PureComponent {
               <GameOver gameId={game._id} title="Player 1 busted"/> }
           {game.started === true &&
             game.players[1].busted === true &&
-              <GameOver gameId={game._id} title="Player 1 busted"/> }
+              <GameOver gameId={game._id} title="Player 2 busted"/> }
           {game.started === true &&
             game.players[0].blackJack === true &&
             <GameOver gameId={game._id} title="PLAYER 1 --> BLACKJACK"/>}
@@ -122,14 +121,18 @@ class Game extends PureComponent {
             game.winnerId === game.players[1].userId &&
              <GameOver gameId={game._id} title="PLAYER 2 WON!!!"/>}
 
+          {game.started === true &&
+            game.winnerId === "equal" &&
+              <GameOver gameId={game._id} title="EQUAL!!"/>}
+
               <div className="cardsplayer0">
               { game.started === true &&
-                  game.players[0].hand.map(c => <li>
+                  game.players[0].hand.map((c,index) => <li key = { index }>
                    <img src= { c.image} alt="hand"/></li>)}
               </div>
               <div className="cardsplayer1">
               { game.started === true &&
-                  game.players[1].hand.map(c => <li>
+                  game.players[1].hand.map((c,index) => <li key = { index }>
                    <img src= { c.image} alt="hand"/></li>)}
               </div>
         </div>
