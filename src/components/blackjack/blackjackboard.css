@@ -1,8 +1,13 @@
 .table {
   background-image: url(https://wizardofodds.com/play/blackjack-v2/table.png);
   background-size: cover;
-  max-height: 70vw;
-  width: 75vw;
+  overflow: hidden;
+  width: 90%;
+  height: 35em;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+
 }
