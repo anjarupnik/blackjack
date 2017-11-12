@@ -3,6 +3,7 @@
 
 .players {
   width: 200%;
+}
 
 .one {
  margin-top: 0;
@@ -61,7 +62,7 @@ p {
     margin-top: -4%;
     margin-bottom: 0;
 }
-  
+
 .hit {
   background-color: red;
   color: white;
