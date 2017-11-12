@@ -8,12 +8,6 @@
   margin-left: auto;
   margin-top: 40px;
   display: flex;
-  align-self: center;
-  flex-flow: column;
+  flex-direction: column;
 
-}
-
-.game {
-    display: flex;
-    flex-flow: wrap;
 }

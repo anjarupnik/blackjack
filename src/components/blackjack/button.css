@@ -1,38 +1,69 @@
 <link href='https://fonts.googleapis.com/css?family=Arvo:700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Raleway:300,100' rel='stylesheet' type='text/css'>
 
-h1.one{
-    align-self: flex-start;
+.players {
+  width: 200%;
+}
+
+.one {
+ margin-top: 0;
+ position: absolute;
+ display: inline-block;
+ margin-left: 8%;
+ font-size: 40px;
+ font-style: italic;
+ color: yellow;
+ text-decoration: underline;
 
 }
 
-h1.two{
-    margin-bottom: 180px;
-    align-self: flex-end;
-    margin-top: -5%;
-    margin-right: 5%;
+p {
+  color: yellow;
+  text-decoration: underline;
+  margin-top: 0;
+  align-self: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.two {
+  margin-top: 0;
+  position: absolute;
+  display: inline-block;
+  margin-left: 70%;
+  color: 	yellow;
+  font-size: 40px;
+  font-style: italic;
+  text-decoration: underline;
 }
 
 .start {
-  display: flex;
-  align-content: stretch;
-  flex-direction: row;
+  align-self: center;
+  margin-top: 20%;
 }
 
 .startbutton {
   background-color: red;
   color: white;
   font-weight: bold;
-  height: 300px;
+  height: 180px;
   width: 220px;
   font-size: 60px;
-  align-self: center;
+  border-radius: 20px;
 
   }
 
-.player2{
-    margin-left: 600px;
+.player1 {
+  margin-left: 10%;
+  margin-top: -15%;
 }
+
+.player2 {
+    margin-left: 79%;
+    margin-top: -4%;
+    margin-bottom: 0;
+}
+
 .hit {
   background-color: red;
   color: white;
@@ -40,6 +71,8 @@ h1.two{
   height: 50px;
   width: 50px;
   font-size: 20px;
+  margin-left: 2%;
+  margin-bottom: 0;
 }
 
 .stick {
@@ -57,10 +90,8 @@ div.cardsplayer0 {
   display: flex;
   flex-direction: row;
   transform: rotate(20deg);
-  position: relative;
-  overflow: hidden;
-  left: 300px;
-  bottom: -150px;
+  margin-left: 10%;
+  margin-top: 10%;
   /*margin-bottom: -450px;*/
   width: 17.5em;
   height: 13em;
@@ -72,10 +103,8 @@ div.cardsplayer1 {
   display: flex;
   flex-direction: row;
   transform: rotate(-20deg);
-  position: relative;
-  overflow: hidden;
-  left: 1000px;
-  bottom: 60px;
+  margin-top: -18%;
+  margin-left: 67%;
   width: 17.5em;
   height: 13em;
   border-width: 1px;
